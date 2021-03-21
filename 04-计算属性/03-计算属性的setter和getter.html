@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  {{fullName}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊！',
+      firstName: '里奥',
+      lastName: '梅西',
+    },
+    computed: {
+      fullName: {
+        //计算属性一般没有 set方法，  只读属性！
+        // set: function (newValue) {
+        //   console.log('=========', newValue);
+        //   const names = newValue.split(' ');
+        //   this.firstName = names[0];
+        //   this.lastName = names[1];
+        // },
+        get: function () {
+          return this.firstName + ' ' + this.lastName
+        }
+      },
+
+      //fullName作为属性，由上面的默认去掉setter方法，简化为下面这种写法，因此计算属性在调用时是不需要添加()的。
+      // fullName: function () {
+      //   return this.firstName + ' ' + this.lastName
+      // }
+    }
+  })
+</script>
+
+</body>
+</html>

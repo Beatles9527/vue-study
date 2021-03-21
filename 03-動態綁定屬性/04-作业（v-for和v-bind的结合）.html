@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="(m,index) in movies">
+      <button v-on:click="click">{{m}}</button>
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      movies: ['刘德华', '张学友', '郭富城', '黎明']
+    },
+    methods: {
+      click: function (index) {
+
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

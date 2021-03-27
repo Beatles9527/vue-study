@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="item in letters" :key="item.id">{{item}}</li>
+  </ul>
+  <button @click="btnClick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊！',
+      letters: ['A', 'B', 'C', 'D', 'E'],
+    },
+    methods: {
+      btnClick() {
+        // 1.push方法
+        //this.letters.push('G');
+        // this.letters.push('111', '222', '333');
+
+        // 2. pop(): 删除数组中的最后一个元素
+        // this.letters.pop();
+
+        // 3. shift(): 删除数组中的第一个元素
+        // this.letters.shift();
+
+        // 4. unshift(): 在数组最前面添加元素
+        // this.letters.unshift('666');
+        // this.letters.unshift('111', '222', '333');
+
+        // 5.splice作用： 删除元素、插入元素，替换元素
+        // 删除：第二个参数传入需要删除几个元素（如果没传，就删除后面所有）
+        // 插入： 第二个元素，传入0，并且后面跟上要插入的元素
+        // 替换： 第二个参数，表示要替换的几个元素，后面是用于替换前面的元素
+        // splice(start):
+        // this.letters.splice(1, 3);
+        // this.letters.splice(1, 0, 'x', 'y', 'z');
+        // this.letters.splice(1, 2, 'x', 'y', 'z');
+
+        // 6. sort(): 排序
+        // this.letters.sort()
+
+        // 7. reverse(): 翻转
+        // this.letters.reverse();
+
+        // 注意：通过索引值修改数组中的元素 （推荐：splice）
+        // this.letters[0] = 'F';
+        // this.letters.splice(0,1,'F');
+        // set(要修改的对象，索引值，修改后的值)
+        Vue.set(this.letters, 0, 'F')
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

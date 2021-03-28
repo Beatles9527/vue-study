@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--  1.选择一个-->
+  <select name="abc" v-model="fruit">
+    <option value="苹果">苹果</option>
+    <option value="香蕉">香蕉</option>
+    <option value="榴莲">榴莲</option>
+    <option value="葡萄">葡萄</option>
+  </select>
+  <h2>您选择的水果是: {{fruit}}</h2>
+
+  <!--  1.选择多个-->
+  <select name="abc" v-model="fruits" multiple>
+    <option value="苹果">苹果</option>
+    <option value="香蕉">香蕉</option>
+    <option value="榴莲">榴莲</option>
+    <option value="葡萄">葡萄</option>
+  </select>
+  <h2>您选择的水果是: {{fruits}}</h2>
+
+  <label v-for="item in items" :for="item">
+    <input type="checkbox" :value="item" id="item" v-model="fruits">{{item}}
+  </label>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊！',
+      fruit: '香蕉',//单选
+      fruits: [],//多选
+      items: ['梅西', '罗纳尔多', '罗纳尔迪尼奥', '克里斯蒂亚若罗纳尔多', '贝利', '克洛泽']
+    }
+  })
+</script>
+</body>
+</html>
